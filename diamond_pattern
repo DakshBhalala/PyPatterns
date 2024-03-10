@@ -1,0 +1,52 @@
+def print_filled_diamond(n):
+    """
+    Prints a diamond pattern with filled interior.
+
+    Parameters:
+    - n: Number of rows in the diamond.
+    """
+    # Print the top half of the diamond
+    for i in range(1, n + 1):
+        spaces = " " * (n - i)  # Leading spaces before the stars
+        stars = "* " * i  # Stars for the current row
+        print(spaces + stars)
+
+    # Print the bottom half of the diamond
+    for i in range(n - 1, 0, -1):
+        spaces = " " * (n - i)  # Leading spaces before the stars
+        stars = "* " * i  # Stars for the current row
+        print(spaces + stars)
+
+def print_hollow_diamond(n):
+    """
+    Prints a hollow diamond pattern with a star-filled border.
+
+    Parameters:
+    - n: Number of rows in the diamond.
+    """
+    # Print the top half of the diamond
+    for i in range(1, n + 1):
+        spaces = " " * (n - i)  # Leading spaces before the stars
+        if i == 1:
+            stars = "*"  # Only one star for the first row
+        else:
+            inner_spaces = " " * (2 * (i - 1) - 1)  # Spaces between the border stars
+            stars = "*" + inner_spaces + "*"  # Border stars with inner spaces
+        print(spaces + stars)
+
+    # Print the bottom half of the diamond
+    for i in range(n - 1, 0, -1):
+        spaces = " " * (n - i)  # Leading spaces before the stars
+        if i == 1:
+            stars = "*"  # Only one star for the last row
+        else:
+            inner_spaces = " " * (2 * (i - 1) - 1)  # Spaces between the border stars
+            stars = "*" + inner_spaces + "*"  # Border stars with inner spaces
+        print(spaces + stars)
+
+# Example usage:
+print("Filled Diamond Pattern:")
+print_filled_diamond(4)
+
+print("\nHollow Diamond Pattern with Star Border:")
+print_hollow_diamond(5)
