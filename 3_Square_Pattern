@@ -1,0 +1,19 @@
+def print_hollow_square_pattern(n):
+    """
+    Print a hollow square pattern with '*' characters.
+
+    Parameters:
+    - n: Number of rows and columns in the square
+    """
+    for i in range(n):
+        if i == 0 or i == n - 1:
+            # Print a filled row for the first and last rows
+            print("* " * n)
+        else:
+            # Print a hollow row for other rows
+            hollow_row = "*" + " " * (2 * (n - 2)) + " *"
+            print(hollow_row)
+
+# Print statements
+print("Hollow Square Pattern:")
+print_hollow_square_pattern(5)
