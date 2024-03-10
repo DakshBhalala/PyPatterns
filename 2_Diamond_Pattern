@@ -44,7 +44,7 @@ def print_hollow_diamond(n):
             stars = "*" + inner_spaces + "*"  # Border stars with inner spaces
         print(spaces + stars)
 
-# Example usage:
+# Print statements
 print("Filled Diamond Pattern:")
 print_filled_diamond(4)
 
