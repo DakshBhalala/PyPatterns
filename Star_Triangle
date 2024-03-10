@@ -1,56 +1,60 @@
-def left_triangle_pattern(n):
+def print_left_aligned_triangle(n):
     """
     Print a left-aligned triangle pattern with '*' characters.
 
-    :param n: Number of rows in the triangle
+    Parameters:
+    - n: Number of rows in the triangle
     """
     for i in range(1, n + 1):
-        print(" " * (n - i) + "* " * i)
+        spaces = " " * (n - i)  # Leading spaces before the stars
+        stars = "* " * i  # Stars for the current row
+        print(spaces + stars)
 
-print("Left Triangle Pattern:")
-left_triangle_pattern(5)
-
-def center_triangle_pattern(n):
+def print_center_aligned_triangle(n):
     """
     Print a center-aligned triangle pattern with '*' characters.
 
-    :param n: Number of rows in the triangle
+    Parameters:
+    - n: Number of rows in the triangle
     """
     for i in range(1, n + 1):
-        print(" " * (n - i) + " " + " *" * i)
+        spaces = " " * (n - i)  # Leading spaces before the stars
+        if i == 1:
+            stars = " *"
+        else:
+            stars = " *" * (i - 1) + " *"  # Stars for the current row
+        print(spaces + stars)
 
-print("\nCenter Triangle Pattern:")
-center_triangle_pattern(5)
-
-def right_triangle_pattern(n):
+def print_right_aligned_triangle(n):
     """
     Print a right-aligned triangle pattern with '*' characters.
 
-    :param n: Number of rows in the triangle
+    Parameters:
+    - n: Number of rows in the triangle
     """
     for i in range(1, n + 1):
-        print(" " * ((n - i) * 2) + "* " * i)
+        spaces = " " * ((n - i) * 2)  # Leading spaces before the stars
+        stars = "* " * i  # Stars for the current row
+        print(spaces + stars)
 
-print("\nRight Triangle Pattern:")
-right_triangle_pattern(5)
-
-def inverted_triangle_pattern(n):
+def print_inverted_triangle(n):
     """
     Print an inverted triangle pattern with '*' characters.
 
-    :param n: Number of rows in the inverted triangle
+    Parameters:
+    - n: Number of rows in the inverted triangle
     """
     for i in range(n, 0, -1):
-        print(" " * (n - i) + "* " * i)
+        spaces = " " * (n - i)  # Leading spaces before the stars
+        stars = "* " * i  # Stars for the current row
+        print(spaces + stars)
 
-print("\nInverted Triangle Pattern:")
-inverted_triangle_pattern(5)
-
-def pascals_triangle_pattern(rows):
+def print_pascals_triangle(rows):
     """
     Print Pascal's Triangle pattern.
 
-    :param rows: Number of rows in Pascal's Triangle
+    Parameters:
+    - rows: Number of rows in Pascal's Triangle
     """
     triangle = []
     for i in range(rows):
@@ -58,8 +62,23 @@ def pascals_triangle_pattern(rows):
         for j in range(1, i):
             row[j] = triangle[i - 1][j - 1] + triangle[i - 1][j]
         triangle.append(row)
+
+    # Print Pascal's Triangle
     for row in triangle:
         print(" ".join(map(str, row)).center(rows * 3))
 
+# Print statements
+print("Left Aligned Triangle Pattern:")
+print_left_aligned_triangle(5)
+
+print("\nCenter Aligned Triangle Pattern:")
+print_center_aligned_triangle(5)
+
+print("\nRight Aligned Triangle Pattern:")
+print_right_aligned_triangle(5)
+
+print("\nInverted Triangle Pattern:")
+print_inverted_triangle(5)
+
 print("\nPascal's Triangle Pattern:")
-pascals_triangle_pattern(5)
+print_pascals_triangle(5)
